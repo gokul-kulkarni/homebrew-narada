@@ -15,6 +15,8 @@ cask "narada" do
     strategy :github_latest
   end
 
+  depends_on :macos
+
   app "Narada.app"
 
   zap trash: [
