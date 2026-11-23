@@ -1,19 +1,12 @@
-# Homebrew tap for Narada
+# homebrew-narada (moved)
 
-[Narada](https://github.com/gokul-kulkarni/narada) is a free, local-first, Postman-compatible API
-client.
+Narada's cask now lives in [gokul-kulkarni/homebrew-tap](https://github.com/gokul-kulkarni/homebrew-tap),
+together with my other apps and tools.
 
 ```sh
-brew install --cask gokul-kulkarni/narada/narada
+brew trust gokul-kulkarni/tap
+brew install --cask gokul-kulkarni/tap/narada
 ```
 
-Narada is not notarized by Apple yet, so the first time you open it macOS says it can't check it
-for malware: open **System Settings → Privacy & Security**, scroll to Narada and choose
-**Open Anyway**.
-
-Update with `brew upgrade --cask narada`.
-
-`brew uninstall --cask narada` removes the app and keeps your data. `brew uninstall --zap narada`
-also deletes Narada's data in `~/Library`, **including your collections and environments if they
-are in Narada's default folder**. A folder you chose yourself in Narada's settings (such as one in
-Google Drive) is left alone.
+If you installed Narada from this tap, `brew update` moves it to the new tap for you
+(`tap_migrations.json`). You can then remove this one: `brew untap gokul-kulkarni/narada`.
