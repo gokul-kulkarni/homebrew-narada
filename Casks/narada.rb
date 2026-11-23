@@ -1,9 +1,9 @@
 cask "narada" do
   arch arm: "aarch64", intel: "x64"
 
-  version "0.2.0"
-  sha256 arm:   "a167bd5e339f9767af81309c6bbc52c07aa70956047a381af449d52c871d2f42",
-         intel: "669a07b218674c0a4371bca7f61a6ce139ccdcf794ff9175c9807ceee4361a6e"
+  version "0.2.1"
+  sha256 arm:   "097484d78204efe8da6ab5d503e2690382c2da0e7165f27a0a0f878313e68414",
+         intel: "1aa160f8dec4303fe4b43d468a26e38cfc1e8d4852bb2b61f38211c963ddc258"
 
   url "https://github.com/gokul-kulkarni/narada/releases/download/v#{version}/Narada_#{version}_#{arch}.dmg"
   name "Narada"
