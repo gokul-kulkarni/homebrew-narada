@@ -19,6 +19,15 @@ cask "narada" do
 
   app "Narada.app"
 
+  # Narada is signed ad hoc, not notarized. Recent macOS reports such an app as
+  # "damaged" while it carries the download quarantine flag, so clear it.
+  postflight_steps do
+    run "/usr/bin/xattr",
+        args:           ["-dr", "com.apple.quarantine", "."],
+        chdir:          "{{appdir}}/Narada.app",
+        writable_paths: ["{{appdir}}/Narada.app"]
+  end
+
   zap trash: [
     "~/Library/Application Support/com.narada.app",
     "~/Library/Caches/com.narada.app",
@@ -27,8 +36,8 @@ cask "narada" do
   ]
 
   caveats <<~EOS
-    Narada is not notarized by Apple yet. The first time you open it, macOS says it
-    can't check it for malware: open System Settings → Privacy & Security, scroll to
-    Narada and choose "Open Anyway".
+    Narada is not notarized by Apple yet. This cask clears macOS's download
+    quarantine flag so the app opens; if macOS still says it is damaged, run:
+      xattr -dr com.apple.quarantine /Applications/Narada.app
   EOS
 end
